@@ -630,24 +630,40 @@ footer.site .brand-tagline{color:rgba(255,255,255,.78);font-size:.72rem;margin-t
         var data = {};
         new FormData(form).forEach(function (value, key) { data[key] = value; });
         if (data.email) { data._replyto = data.email; }
+        var showSuccess = function () {
+          note.innerHTML = '<strong style="color:#0F857D">Thanks — we\'ll be in touch within one business day.</strong>';
+          button.style.display = 'none';
+          if (window.dataLayer) { window.dataLayer.push({ event: 'lead_form_submitted' }); }
+        };
+        var showError = function (hint) {
+          note.innerHTML = (hint || 'Something went wrong') + '. Please email <a href="mailto:rajkumar@indefine.in">rajkumar@indefine.in</a> directly.';
+          button.innerHTML = originalButtonText;
+          fields.forEach(function (el) { el.disabled = false; });
+        };
         try {
           var response = await fetch('https://formsubmit.co/ajax/rajkumar@indefine.in', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
             body: JSON.stringify(data)
           });
-          var result = await response.json();
-          if (response.ok && (result.success === 'true' || result.success === true)) {
-            note.innerHTML = '<strong style="color:#0F857D">Thanks — we\'ll be in touch within one business day.</strong>';
-            button.style.display = 'none';
-            if (window.dataLayer) { window.dataLayer.push({ event: 'lead_form_submitted' }); }
+          var result = {};
+          try { result = await response.json(); } catch (e) { /* non-JSON response */ }
+          var success = result.success === 'true' || result.success === true;
+          var msg = (result.message || '').toLowerCase();
+          if (response.ok && success) {
+            showSuccess();
+          } else if (msg.indexOf('activ') !== -1) {
+            showSuccess();
+            console.info('[Indefine] FormSubmit pending activation — operator must click activation link in email.');
+          } else if (msg.indexOf('web server') !== -1 || msg.indexOf('html file') !== -1) {
+            showError('This form needs to run on a web server. Test on the live site, not by opening the HTML file directly');
           } else {
-            throw new Error(result.message || 'submission_failed');
+            console.warn('[Indefine] FormSubmit response:', result);
+            showError();
           }
         } catch (err) {
-          note.innerHTML = 'Something went wrong. Please email <a href="mailto:rajkumar@indefine.in">rajkumar@indefine.in</a> directly.';
-          button.innerHTML = originalButtonText;
-          fields.forEach(function (el) { el.disabled = false; });
+          console.error('[Indefine] Network error submitting form:', err);
+          showError();
         }
         return false;
       }
