@@ -107,15 +107,41 @@ npx serve .
 
 Then open [http://localhost:4000](http://localhost:4000).
 
-## Form submissions — important next step
+## Form submissions — how the lead form works
 
-The contact form currently displays a success message on submit but doesn't actually send anywhere. Before driving traffic, wire it up. Three clean options:
+The contact form on both pages submits via **FormSubmit** (formsubmit.co) — a free, no-signup email-forwarding service. Every submission is POSTed as JSON to:
 
-1. **Formspree** (easiest) — Add `action="https://formspree.io/f/YOUR-ID"` to the `<form>` tag. Free tier: 50 submissions/month. No backend needed.
-2. **Vercel Form handler** — Add a Vercel serverless function in `/api/contact.js` that validates and forwards to email or HubSpot.
-3. **HubSpot Forms** — Replace the form with a HubSpot embed. Best if you're already using HubSpot for CRM.
+```
+https://formsubmit.co/ajax/rajkumar@indefine.in
+```
 
-Option 1 gets you live in under five minutes. Option 2 gives you total control and no third-party dependency. Option 3 is right if HubSpot is your system of record.
+Rajkumar receives each lead as an email with a structured table of all form fields, plus a Reply-To header set to the lead's own email so replies go straight to the prospect.
+
+### First-time activation (one-time, required)
+
+The very first submission FormSubmit receives for `rajkumar@indefine.in` will trigger a verification email to that address. **Rajkumar must click the activation link in that email** before FormSubmit will forward any real leads.
+
+To activate immediately (before traffic arrives):
+
+1. Visit your live site (or local preview)
+2. Submit the contact form with any test content
+3. Check `rajkumar@indefine.in` inbox (and spam folder — the activation email comes from `noreply@formsubmit.co`)
+4. Click the activation link
+5. Done — all subsequent submissions will forward to that inbox
+
+### Moving to a more robust setup later
+
+FormSubmit's free tier is generous but not infinite (~50 submissions/day soft limit, some rate limiting on bursts). Once volumes grow or you want full control over deliverability, swap it for one of these:
+
+1. **Formspree paid tier** — Same pattern, better deliverability, $10/month
+2. **Vercel serverless + Resend** — Add `/api/contact.js` that uses the Resend SDK to send from an authenticated `@indefine.in` sender. Best for brand consistency and no third-party dependency
+3. **HubSpot Forms embed** — Drop in a HubSpot form instead. Right call if HubSpot is your CRM
+
+All three require changing only the form's submit handler — the form HTML stays the same.
+
+### Spam protection
+
+The form includes a hidden honeypot field (`_honey`) that legitimate users never fill. Bots typically fill every field, so FormSubmit discards any submission with that field populated. If spam becomes a problem, flip `_captcha` from `false` to `true` in both HTML files to enable FormSubmit's built-in captcha.
 
 ## A/B test the two versions
 

@@ -98,6 +98,10 @@ header.nav{
 nav.primary{display:flex;gap:32px;align-items:center}
 nav.primary a{color:var(--navy);font-weight:500;font-size:.95rem}
 nav.primary a:hover{color:var(--teal-2)}
+/* CTA button in nav — keep text white on teal background at all states */
+nav.primary a.btn-primary,nav.primary a.btn-primary:hover{color:#fff}
+nav.primary a.btn-secondary{color:var(--navy)}
+nav.primary a.btn-secondary:hover{color:#fff}
 .menu-btn{display:none;background:none;border:0;font-size:1.4rem;color:var(--navy);cursor:pointer}
 
 /* Hero */
@@ -862,31 +866,31 @@ footer.site .brand-tagline{color:rgba(255,255,255,.78);font-size:.72rem;margin-t
       <p style="max-width:620px;margin:0 auto 6px">Tell us a few details about your firm and the type of support you need — tax prep, bookkeeping, payroll, or a mix. We'll send a tailored rate sheet within one business day.</p>
       <p style="color:#6FE7DC;font-weight:600;margin-top:10px">15 minutes · No pitch deck · If we're not a fit, we'll say so.</p>
     </div>
-    <form class="form-card" onsubmit="event.preventDefault(); this.querySelector('.form-note').innerHTML='Thanks — we\\'ll be in touch within one business day.'; this.querySelectorAll('input,select,textarea,button').forEach(function(el){el.disabled=true});">
+    <form class="form-card" id="indefine-lead-form" onsubmit="return submitIndefineForm(event, this)">
       <div class="form-row">
         <div class="form-field">
           <label for="f-name">Full name</label>
-          <input id="f-name" type="text" required placeholder="e.g. Jane Doe" />
+          <input id="f-name" name="name" type="text" required placeholder="e.g. Jane Doe" />
         </div>
         <div class="form-field">
           <label for="f-firm">CPA firm name</label>
-          <input id="f-firm" type="text" required placeholder="e.g. Doe &amp; Partners CPAs" />
+          <input id="f-firm" name="firm" type="text" required placeholder="e.g. Doe &amp; Partners CPAs" />
         </div>
       </div>
       <div class="form-row">
         <div class="form-field">
           <label for="f-email">Work email</label>
-          <input id="f-email" type="email" required placeholder="jane@firmname.com" />
+          <input id="f-email" name="email" type="email" required placeholder="jane@firmname.com" />
         </div>
         <div class="form-field">
           <label for="f-phone">Phone</label>
-          <input id="f-phone" type="tel" placeholder="(optional)" />
+          <input id="f-phone" name="phone" type="tel" placeholder="(optional)" />
         </div>
       </div>
       <div class="form-row">
         <div class="form-field">
           <label for="f-size">Firm size</label>
-          <select id="f-size">
+          <select id="f-size" name="firm_size">
             <option>1–5 professionals</option>
             <option>6–20 professionals</option>
             <option>21–50 professionals</option>
@@ -895,7 +899,7 @@ footer.site .brand-tagline{color:rgba(255,255,255,.78);font-size:.72rem;margin-t
         </div>
         <div class="form-field">
           <label for="f-need">What do you need most?</label>
-          <select id="f-need">
+          <select id="f-need" name="need">
             <option>Tax prep support (seasonal)</option>
             <option>Tax prep support (year-round)</option>
             <option>Bookkeeping / monthly close</option>
@@ -907,12 +911,50 @@ footer.site .brand-tagline{color:rgba(255,255,255,.78);font-size:.72rem;margin-t
       <div class="form-row">
         <div class="form-field full">
           <label for="f-notes">A bit of context (optional)</label>
-          <textarea id="f-notes" rows="3" placeholder="Volume, software, timing, anything we should know."></textarea>
+          <textarea id="f-notes" name="notes" rows="3" placeholder="Volume, software, timing, anything we should know."></textarea>
         </div>
       </div>
+      <input type="hidden" name="_subject" value="New Indefine lead — US CPA firm enquiry" />
+      <input type="hidden" name="_template" value="table" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off" />
       <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">Send &mdash; we reply within 1 business day</button>
       <div class="form-note">We'll never share your info. We don't sell email lists. One human will read this and reply.</div>
     </form>
+    <script>
+      async function submitIndefineForm(event, form) {
+        event.preventDefault();
+        var note = form.querySelector('.form-note');
+        var button = form.querySelector('button[type="submit"]');
+        var fields = form.querySelectorAll('input, select, textarea, button');
+        var originalButtonText = button.innerHTML;
+        button.innerHTML = 'Sending…';
+        fields.forEach(function (el) { el.disabled = true; });
+        var data = {};
+        new FormData(form).forEach(function (value, key) { data[key] = value; });
+        if (data.email) { data._replyto = data.email; }
+        try {
+          var response = await fetch('https://formsubmit.co/ajax/rajkumar@indefine.in', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          var result = await response.json();
+          if (response.ok && (result.success === 'true' || result.success === true)) {
+            note.innerHTML = '<strong style="color:#0F857D">Thanks — we\'ll be in touch within one business day.</strong>';
+            button.style.display = 'none';
+            if (window.dataLayer) { window.dataLayer.push({ event: 'lead_form_submitted' }); }
+          } else {
+            throw new Error(result.message || 'submission_failed');
+          }
+        } catch (err) {
+          note.innerHTML = 'Something went wrong. Please email <a href="mailto:rajkumar@indefine.in">rajkumar@indefine.in</a> directly.';
+          button.innerHTML = originalButtonText;
+          fields.forEach(function (el) { el.disabled = false; });
+        }
+        return false;
+      }
+    </script>
   </div>
 </section>
 
