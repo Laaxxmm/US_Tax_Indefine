@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /short
+
+Sitemap: https://indefine-us.vercel.app/sitemap.xml

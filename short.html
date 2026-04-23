@@ -1,0 +1,679 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Indefine — Outsourced Accounting, Tax & Payroll Staff for US CPA Firms | $10/hr</title>
+<meta name="description" content="A dedicated offshore team for your CPA firm — tax, books, payroll. From $10/hr. Onboarded in 72 hours. No seat minimums." />
+<meta property="og:title" content="Indefine — Your CPA firm's back office, from $10/hour." />
+<meta property="og:description" content="Dedicated tax, books & payroll staff for US CPA firms. Onboarded in 72 hours." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700;800&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#0B2545; --navy-2:#13315C;
+  --teal:#13A89E; --teal-2:#0F857D;
+  --cream:#FAF7F2; --slate:#334155; --slate-2:#64748B;
+  --line:#E6E1D6; --white:#FFFFFF;
+  --brand-black:#0B0B0B; --brand-red:#E64A2E;
+  --max:1160px; --radius:14px;
+  --shadow-sm:0 1px 2px rgba(11,37,69,.06);
+  --shadow-md:0 10px 30px -12px rgba(11,37,69,.18);
+  --shadow-lg:0 24px 60px -20px rgba(11,37,69,.24);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:"Inter",system-ui,sans-serif;color:var(--slate);background:var(--white);line-height:1.55;-webkit-font-smoothing:antialiased}
+h1,h2,h3{font-family:"Source Serif 4",serif;color:var(--navy);line-height:1.12;letter-spacing:-0.01em;margin:0 0 .4em}
+h1{font-size:clamp(2.4rem,5vw,4rem);font-weight:700}
+h2{font-size:clamp(1.8rem,3vw,2.5rem);font-weight:700}
+h3{font-family:"Inter",sans-serif;font-size:1.1rem;font-weight:600;letter-spacing:-.005em}
+p{margin:0 0 1rem}
+a{color:var(--teal-2);text-decoration:none}
+.container{max-width:var(--max);margin:0 auto;padding:0 24px}
+.eyebrow{display:inline-block;font-size:.76rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--teal-2);margin-bottom:14px}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;gap:.5em;padding:14px 22px;border-radius:10px;font-weight:600;font-size:.97rem;border:1.5px solid transparent;cursor:pointer;transition:all .15s ease;white-space:nowrap}
+.btn-primary{background:var(--teal);color:#fff;box-shadow:var(--shadow-sm)}
+.btn-primary:hover{background:var(--teal-2);transform:translateY(-1px);box-shadow:var(--shadow-md);color:#fff}
+.btn-secondary{background:transparent;color:var(--navy);border-color:var(--navy)}
+.btn-secondary:hover{background:var(--navy);color:#fff}
+.btn-lg{padding:16px 28px;font-size:1.02rem}
+
+/* Nav */
+header.nav{position:sticky;top:0;z-index:50;backdrop-filter:saturate(140%) blur(10px);background:rgba(255,255,255,.82);border-bottom:1px solid var(--line)}
+.nav-inner{display:flex;align-items:center;justify-content:space-between;height:72px}
+/* Brand lockup */
+.brand{display:inline-flex;flex-direction:column;gap:2px;text-decoration:none;line-height:1}
+.brand-wordmark{
+  font-family:"Archivo Black","Inter",system-ui,sans-serif;
+  font-weight:400;font-size:1.5rem;color:var(--brand-black);
+  letter-spacing:-.03em;line-height:1;
+  display:inline-flex;align-items:baseline;
+}
+.brand-dot{color:var(--brand-red);margin-left:1px;display:inline-block}
+.brand-tagline{
+  font-family:"Inter",sans-serif;font-weight:600;font-size:.66rem;
+  color:var(--brand-black);letter-spacing:.01em;opacity:.78;
+}
+nav.primary{display:flex;gap:28px;align-items:center}
+nav.primary a{color:var(--navy);font-weight:500;font-size:.95rem}
+nav.primary a:hover{color:var(--teal-2)}
+.menu-btn{display:none;background:none;border:0;font-size:1.4rem;color:var(--navy);cursor:pointer}
+
+/* Hero */
+.hero{
+  position:relative;overflow:hidden;
+  background:radial-gradient(1200px 600px at 110% -10%,rgba(19,168,158,.14),transparent 60%),radial-gradient(900px 500px at -10% 10%,rgba(11,37,69,.05),transparent 55%),var(--cream);
+  padding:88px 0 72px;
+}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero h1 .accent{color:var(--teal-2);font-style:italic;font-weight:600}
+.hero-sub{font-size:1.18rem;color:var(--slate);max-width:520px;margin-bottom:30px;line-height:1.45}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px}
+.jump{display:flex;gap:22px;flex-wrap:wrap;font-size:.88rem;color:var(--slate-2)}
+.jump a{color:var(--slate);border-bottom:1px dashed var(--slate-2);padding-bottom:1px}
+.jump a:hover{color:var(--teal-2);border-color:var(--teal)}
+
+/* Rate card */
+.rate-card{background:#fff;border-radius:18px;padding:30px;box-shadow:var(--shadow-lg);border:1px solid var(--line)}
+.rate-card .label{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;font-size:.82rem;color:var(--slate-2);font-weight:600;text-transform:uppercase;letter-spacing:.08em}
+.rate-card .tag{font-size:.7rem;background:#E7F8F5;color:var(--teal-2);padding:4px 10px;border-radius:999px;font-weight:700;letter-spacing:.04em}
+.rate-card .price{display:flex;align-items:baseline;gap:10px;margin:4px 0 10px}
+.rate-card .num{font-family:"Source Serif 4",serif;font-size:4rem;font-weight:700;color:var(--navy);line-height:1}
+.rate-card .unit{color:var(--slate-2);font-weight:500;font-size:1.02rem}
+.rate-card .meta{font-size:.86rem;color:var(--slate-2);border-top:1px dashed var(--line);padding-top:14px;margin-top:6px}
+.rate-card .check-row{display:grid;gap:8px;margin-top:8px}
+.rate-card .check-row li{display:flex;gap:10px;align-items:center;font-size:.93rem;color:var(--slate);list-style:none}
+
+/* Stat strip — THE scan moment */
+.stats{background:var(--navy);color:#fff;padding:28px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;align-items:center}
+.stat{text-align:center;padding:0 12px}
+.stat .big{font-family:"Source Serif 4",serif;font-size:2.1rem;font-weight:700;color:#fff;line-height:1;display:block;margin-bottom:6px}
+.stat .big .unit{font-size:.9rem;font-weight:500;color:#6FE7DC;letter-spacing:0;vertical-align:middle;margin-left:2px}
+.stat .label{font-size:.82rem;color:rgba(255,255,255,.72);letter-spacing:.04em}
+.stat+.stat{border-left:1px solid rgba(255,255,255,.12)}
+
+/* Tools bar — real logos */
+.logobar{background:#fff;padding:30px 0 24px;border-bottom:1px solid var(--line)}
+.logobar-label{font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--slate-2);text-align:center;margin-bottom:22px}
+.logo-row{display:flex;gap:30px;align-items:center;justify-content:center;flex-wrap:wrap}
+.logo-row img{height:22px;width:auto;opacity:.82;transition:opacity .2s ease;filter:grayscale(.1)}
+.logo-row img:hover{opacity:1;filter:none}
+/* Typographic wordmark pill for brands without open-source SVG */
+.wordmark{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:"Inter";font-weight:700;font-size:.88rem;letter-spacing:-.01em;
+  padding:6px 12px;border-radius:6px;
+  background:#fff;border:1px solid var(--line);
+  opacity:.85;transition:opacity .2s;
+}
+.wordmark:hover{opacity:1}
+.wordmark .dot{width:8px;height:8px;border-radius:2px;display:inline-block}
+.tm-note{font-size:.7rem;color:var(--slate-2);text-align:center;margin-top:16px;letter-spacing:.02em}
+
+/* Sections */
+section{padding:80px 0}
+section.alt{background:var(--cream)}
+.section-head{text-align:center;max-width:640px;margin:0 auto 44px}
+
+/* Services — simplified (icon + title + 1-liner only) */
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.service-card{background:#fff;padding:30px;border-radius:16px;border:1px solid var(--line);transition:all .2s ease;position:relative;overflow:hidden}
+.service-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;background:linear-gradient(90deg,var(--teal),var(--navy));transform:scaleX(0);transform-origin:left;transition:transform .25s ease}
+.service-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);border-color:transparent}
+.service-card:hover::before{transform:scaleX(1)}
+.service-icon{width:48px;height:48px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(19,168,158,.12),rgba(11,37,69,.06));color:var(--teal-2);margin-bottom:16px}
+.service-card h3{font-family:"Source Serif 4",serif;font-size:1.3rem;color:var(--navy);margin-bottom:8px}
+.service-card p{margin:0;color:var(--slate);font-size:.95rem;line-height:1.5}
+.service-card .tags{margin-top:14px;font-size:.8rem;color:var(--slate-2);letter-spacing:.01em}
+
+/* Staffing — single-line visual, no deep-dive */
+.pod-visual{max-width:820px;margin:0 auto;display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:16px;align-items:center}
+.pod-role{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center;box-shadow:var(--shadow-sm)}
+.pod-role .role-label{font-size:.72rem;font-weight:700;color:var(--teal-2);text-transform:uppercase;letter-spacing:.12em;margin-bottom:6px}
+.pod-role .role-name{font-family:"Source Serif 4",serif;font-size:1.15rem;color:var(--navy);font-weight:700;margin-bottom:4px}
+.pod-role .role-rate{font-size:.85rem;color:var(--slate-2)}
+.pod-arrow{color:var(--teal);font-size:1.6rem;font-weight:300}
+.pod-note{text-align:center;color:var(--slate-2);font-size:.9rem;margin-top:20px;font-style:italic}
+
+/* Comparison */
+.compare-card{max-width:820px;margin:0 auto;background:#fff;border-radius:18px;border:1px solid var(--line);overflow:hidden;box-shadow:var(--shadow-md)}
+.compare-head{display:grid;grid-template-columns:1.2fr 1fr 1fr;padding:18px 22px;background:var(--navy);color:#fff;font-size:.85rem;font-weight:600}
+.compare-row{display:grid;grid-template-columns:1.2fr 1fr 1fr;padding:15px 22px;border-top:1px solid var(--line);align-items:center;font-size:.95rem}
+.compare-row:nth-child(odd){background:var(--cream)}
+.compare-row .label{color:var(--navy);font-weight:600}
+.compare-row .yes{color:var(--teal-2);font-weight:600}
+.compare-row .no{color:var(--slate-2)}
+
+/* Pricing */
+.pricing-wrap{background:linear-gradient(135deg,var(--navy),var(--navy-2));border-radius:22px;padding:52px;color:#fff;position:relative;overflow:hidden}
+.pricing-wrap::after{content:"";position:absolute;right:-60px;bottom:-60px;width:280px;height:280px;border-radius:50%;background:radial-gradient(circle,rgba(19,168,158,.18),transparent 60%)}
+.pricing-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:48px;align-items:center;position:relative;z-index:1}
+.pricing-wrap h2{color:#fff}
+.pricing-wrap p{color:rgba(255,255,255,.82);margin-bottom:0}
+.price-table{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:8px}
+.price-row{display:grid;grid-template-columns:1.4fr .9fr;padding:16px 20px;border-radius:10px;align-items:center;font-size:.96rem}
+.price-row.head{background:rgba(255,255,255,.08);font-weight:600;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.7)}
+.price-row .rate{font-family:"Source Serif 4",serif;font-size:1.35rem;font-weight:700;color:#fff;text-align:right}
+.price-row .rate small{font-family:"Inter";font-size:.78rem;font-weight:500;color:rgba(255,255,255,.6)}
+
+/* Security */
+.security-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.sec-card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px}
+.sec-card h3{font-size:1.02rem;margin-bottom:6px;font-family:"Inter"}
+.sec-card p{font-size:.92rem;margin:0;color:var(--slate)}
+.sec-icon{width:40px;height:40px;border-radius:10px;background:var(--cream);display:grid;place-items:center;color:var(--teal-2);margin-bottom:14px}
+
+/* Timeline */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:30px;position:relative}
+.timeline::before{content:"";position:absolute;left:6%;right:6%;top:22px;height:2px;background:repeating-linear-gradient(to right,var(--teal) 0 6px,transparent 6px 12px);z-index:0}
+.step{position:relative;z-index:1;text-align:center;padding:0 12px}
+.step .bubble{width:46px;height:46px;border-radius:50%;background:#fff;border:2px solid var(--teal);color:var(--teal-2);font-weight:700;display:grid;place-items:center;margin:0 auto 14px;font-family:"Source Serif 4",serif;font-size:1.1rem}
+.step h3{font-size:1rem;margin:0 0 4px;font-family:"Inter"}
+.step p{font-size:.86rem;color:var(--slate);margin:0}
+.step .when{font-size:.72rem;color:var(--teal-2);font-weight:700;letter-spacing:.1em;text-transform:uppercase}
+
+/* Testimonials */
+.quotes-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:900px;margin:0 auto}
+.quote{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.quote p{font-size:1.02rem;color:var(--navy);margin:0;line-height:1.5}
+.quote-by{display:flex;align-items:center;gap:12px;margin-top:auto;padding-top:14px;border-top:1px solid var(--line)}
+.avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--navy),var(--teal));color:#fff;display:grid;place-items:center;font-weight:700;font-size:.88rem}
+.quote-by .name{font-weight:600;color:var(--navy);font-size:.9rem}
+.quote-by .title{color:var(--slate-2);font-size:.8rem}
+
+/* FAQ */
+.faq{max-width:760px;margin:0 auto;display:grid;gap:10px}
+.faq details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 22px;transition:box-shadow .2s}
+.faq details[open]{box-shadow:var(--shadow-md);border-color:var(--teal)}
+.faq summary{list-style:none;cursor:pointer;font-weight:600;color:var(--navy);display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:.98rem}
+.faq summary::after{content:"+";font-size:1.6rem;font-weight:400;color:var(--teal)}
+.faq details[open] summary::after{content:"−"}
+.faq details p{margin:14px 0 0;color:var(--slate);font-size:.94rem}
+
+/* CTA */
+.cta-band{background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;padding:80px 0}
+.cta-band h2{color:#fff}
+.cta-band .section-head p{color:rgba(255,255,255,.82)}
+.form-card{background:#fff;color:var(--slate);border-radius:18px;padding:32px;box-shadow:var(--shadow-lg);max-width:560px;margin:0 auto}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+.form-field{display:flex;flex-direction:column;gap:6px}
+.form-field.full{grid-column:1/-1}
+.form-field label{font-size:.82rem;font-weight:600;color:var(--navy)}
+.form-field input,.form-field select,.form-field textarea{padding:12px 14px;border:1.5px solid var(--line);border-radius:10px;font:inherit;color:var(--slate);background:#fff;transition:border .15s}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{outline:none;border-color:var(--teal)}
+.form-note{font-size:.82rem;color:var(--slate-2);margin-top:10px;text-align:center}
+
+/* Footer */
+footer.site{background:#07182E;color:rgba(255,255,255,.72);padding:50px 0 26px}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:32px}
+footer.site h4{color:#fff;font-family:"Inter";font-size:.82rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin:0 0 14px}
+footer.site ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+footer.site a{color:rgba(255,255,255,.72);font-size:.92rem}
+footer.site a:hover{color:#fff}
+footer.site .brand-wordmark{color:#fff;font-size:1.6rem}
+footer.site .brand-tagline{color:rgba(255,255,255,.78);font-size:.72rem;margin-top:4px}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:.82rem}
+
+/* Responsive */
+@media (max-width: 960px){
+  .hero-grid,.pricing-grid{grid-template-columns:1fr;gap:36px}
+  .services-grid,.pod-visual{grid-template-columns:1fr}
+  .pod-arrow{transform:rotate(90deg);margin:0 auto}
+  .stats-grid{grid-template-columns:1fr 1fr;gap:20px 0}
+  .stat+.stat{border:none}
+  .stat:nth-child(3),.stat:nth-child(4){border-top:1px solid rgba(255,255,255,.12);padding-top:20px}
+  .security-grid{grid-template-columns:1fr 1fr}
+  .timeline{grid-template-columns:1fr 1fr;gap:28px 0}
+  .timeline::before{display:none}
+  .quotes-grid,.footer-grid{grid-template-columns:1fr 1fr}
+  nav.primary{display:none}
+  .menu-btn{display:block}
+  .pricing-wrap{padding:36px 22px}
+}
+@media (max-width: 600px){
+  .services-grid,.security-grid{grid-template-columns:1fr}
+  .form-row{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .compare-head,.compare-row{grid-template-columns:1.2fr .8fr .8fr;padding:12px 14px;font-size:.85rem}
+  section{padding:60px 0}
+  .hero{padding:60px 0 50px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<header class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="brand" aria-label="Indefine — Streamlining workflows">
+      <span class="brand-wordmark">Indefine<span class="brand-dot">.</span></span>
+      <span class="brand-tagline">Streamlining workflows</span>
+    </a>
+    <nav class="primary" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#security">Security</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact" class="btn btn-primary">Book a 15-min call</a>
+    </nav>
+    <button class="menu-btn" aria-label="Menu">☰</button>
+  </div>
+</header>
+
+<!-- HERO — sells the whole pitch in 10 seconds -->
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <span class="eyebrow">Built for US CPA firms</span>
+      <h1>Your <span class="accent">offshore back office</span>, from $10 an hour.</h1>
+      <p class="hero-sub">A <strong style="color:var(--navy)">dedicated</strong> pod for your tax, bookkeeping and payroll backlog. Starts in 72 hours. No seat minimums.</p>
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary btn-lg">Book a 15-min call →</a>
+        <a href="#pricing" class="btn btn-secondary btn-lg">See pricing</a>
+      </div>
+      <div class="jump">
+        Jump to: <a href="#services">Services</a> <a href="#pricing">Pricing</a> <a href="#security">Security</a> <a href="#faq">FAQ</a>
+      </div>
+    </div>
+
+    <aside class="rate-card" aria-label="Rate summary">
+      <div class="label">
+        <span>Staff rate</span>
+        <span class="tag">PUBLISHED</span>
+      </div>
+      <div class="price">
+        <span class="num">$10</span>
+        <span class="unit">/ hour · per staff</span>
+      </div>
+      <ul class="check-row">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#13A89E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Dedicated, not shared</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#13A89E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Month-to-month</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#13A89E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg> Senior reviewer included</li>
+      </ul>
+      <div class="meta">Senior reviewer tier from $15/hr. Engagement coordinator included.</div>
+    </aside>
+  </div>
+</section>
+
+<!-- STAT STRIP — scan moment -->
+<section class="stats" aria-label="Key stats">
+  <div class="container stats-grid">
+    <div class="stat"><span class="big">72<span class="unit">hrs</span></span><span class="label">Onboarding</span></div>
+    <div class="stat"><span class="big">$10<span class="unit">/hr</span></span><span class="label">Published rate</span></div>
+    <div class="stat"><span class="big">0</span><span class="label">Seat minimums</span></div>
+    <div class="stat"><span class="big">1</span><span class="label">Dedicated pod per firm</span></div>
+  </div>
+</section>
+
+<!-- TOOLS BAR — real logos where available, brand-color wordmarks where not -->
+<div class="logobar">
+  <div class="container">
+    <div class="logobar-label">Fluent in your stack</div>
+    <div class="logo-row">
+      <!-- Tax prep tools (niche US CPA software — no open-source SVGs, use brand-color wordmarks) -->
+      <span class="wordmark" title="Drake Software"><span class="dot" style="background:#B31E2A"></span><span style="color:#B31E2A">Drake</span></span>
+      <span class="wordmark" title="Intuit Lacerte"><span class="dot" style="background:#0077C5"></span><span style="color:#0077C5">Lacerte</span></span>
+      <span class="wordmark" title="Thomson Reuters UltraTax CS"><span class="dot" style="background:#FF8200"></span><span style="color:#3B3B3B">UltraTax<span style="color:#FF8200"> CS</span></span></span>
+      <span class="wordmark" title="Intuit ProConnect"><span class="dot" style="background:#2CA01C"></span><span style="color:#2CA01C">ProConnect</span></span>
+      <span class="wordmark" title="Wolters Kluwer CCH Axcess"><span class="dot" style="background:#E4002B"></span><span style="color:#0B2545">CCH<span style="color:#E4002B"> Axcess</span></span></span>
+
+      <!-- Bookkeeping / payroll (open-source SVGs via Simple Icons CDN, served in brand color) -->
+      <img src="https://cdn.simpleicons.org/quickbooks/2CA01C" alt="QuickBooks" loading="lazy" />
+      <img src="https://cdn.simpleicons.org/xero/13B5EA" alt="Xero" loading="lazy" />
+      <img src="https://cdn.simpleicons.org/sage/00DC00" alt="Sage" loading="lazy" />
+      <span class="wordmark" title="Oracle NetSuite"><span class="dot" style="background:#F80000"></span><span style="color:#F80000">Net<span style="color:#0B2545">Suite</span></span></span>
+      <img src="https://cdn.simpleicons.org/zoho/E42527" alt="Zoho Books" loading="lazy" />
+      <img src="https://cdn.simpleicons.org/gusto/F45D48" alt="Gusto" loading="lazy" />
+      <img src="https://cdn.simpleicons.org/adp/D0271D" alt="ADP" loading="lazy" />
+      <img src="https://cdn.simpleicons.org/paychex/0033A0" alt="Paychex" loading="lazy" />
+    </div>
+    <p class="tm-note">All product names, logos, and brands are property of their respective owners. Named here to indicate platforms we work in.</p>
+  </div>
+</div>
+
+<!-- SERVICES — icon + title + 1-liner -->
+<section id="services">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Services</span>
+      <h2>Three services. That's it.</h2>
+    </div>
+    <div class="services-grid">
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/></svg>
+        </div>
+        <h3>Tax preparation</h3>
+        <p>End-to-end prep and workpapers. Organizer-to-draft in 5–7 days. Senior reviewer pre-check.</p>
+        <div class="tags">1040 · 1120 · 1120-S · 1065 · 1041 · 990</div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>Bookkeeping &amp; close</h3>
+        <p>Monthly close within 7 business days. US COA mapping, recs, review-ready files.</p>
+        <div class="tags">QuickBooks · Xero · Sage · NetSuite · Zoho</div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-icon" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h3>Payroll processing</h3>
+        <p>Multi-state runs, federal/state/local filings, year-end W-2 and 1099 prep.</p>
+        <div class="tags">Gusto · ADP · Paychex · QB Payroll · Rippling</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- POD VISUAL + COMPARISON -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">The pod model</span>
+      <h2>One firm. One pod. Three roles.</h2>
+    </div>
+    <div class="pod-visual">
+      <div class="pod-role">
+        <div class="role-label">Tier 1</div>
+        <div class="role-name">Preparer</div>
+        <div class="role-rate">from $10/hr</div>
+      </div>
+      <div class="pod-arrow">→</div>
+      <div class="pod-role">
+        <div class="role-label">Tier 2</div>
+        <div class="role-name">Senior Reviewer</div>
+        <div class="role-rate">from $15/hr</div>
+      </div>
+      <div class="pod-arrow">→</div>
+      <div class="pod-role">
+        <div class="role-label">Included</div>
+        <div class="role-name">Coordinator</div>
+        <div class="role-rate">no extra cost</div>
+      </div>
+    </div>
+    <p class="pod-note">Same pod on your clients year-round. Swap or scale within 5 business days.</p>
+
+    <div style="height:56px"></div>
+
+    <div class="compare-card" aria-label="Comparison">
+      <div class="compare-head">
+        <div>vs. a typical offshore pool</div>
+        <div style="text-align:center">Them</div>
+        <div style="text-align:center;color:#6FE7DC">Indefine</div>
+      </div>
+      <div class="compare-row"><span class="label">Staff model</span><span class="no" style="text-align:center">Shared, rotating</span><span class="yes" style="text-align:center">Dedicated pod</span></div>
+      <div class="compare-row"><span class="label">US tax depth</span><span class="no" style="text-align:center">Basic</span><span class="yes" style="text-align:center">Deep + GAAP</span></div>
+      <div class="compare-row"><span class="label">Senior review</span><span class="no" style="text-align:center">Add-on</span><span class="yes" style="text-align:center">Built-in</span></div>
+      <div class="compare-row"><span class="label">Onboarding</span><span class="no" style="text-align:center">2–4 weeks</span><span class="yes" style="text-align:center">~72 hours</span></div>
+      <div class="compare-row"><span class="label">Commitment</span><span class="no" style="text-align:center">Annual</span><span class="yes" style="text-align:center">Month-to-month</span></div>
+      <div class="compare-row"><span class="label">Staff-tier rate</span><span class="no" style="text-align:center">$12–$18</span><span class="yes" style="text-align:center">From $10</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="container">
+    <div class="pricing-wrap">
+      <div class="pricing-grid">
+        <div>
+          <span class="eyebrow" style="color:#6FE7DC">Transparent pricing</span>
+          <h2>$10/hour. Published.</h2>
+          <p>Month-to-month. No seat minimums. No hidden reviewer fees. Add tax-season capacity and drop it April 16.</p>
+        </div>
+        <div class="price-table">
+          <div class="price-row head"><span>Role</span><span style="text-align:right">Rate</span></div>
+          <div class="price-row"><span>Staff Bookkeeper</span><span class="rate">$10<small>/hr</small></span></div>
+          <div class="price-row"><span>Staff Tax Preparer</span><span class="rate">$10<small>/hr</small></span></div>
+          <div class="price-row"><span>Payroll Specialist</span><span class="rate">$12<small>/hr</small></span></div>
+          <div class="price-row"><span>Senior Reviewer</span><span class="rate">$15<small>/hr</small></span></div>
+          <div class="price-row"><span>Engagement Coordinator</span><span class="rate" style="color:#6FE7DC">Included</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECURITY -->
+<section id="security" class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Security &amp; compliance</span>
+      <h2>Built for 7216-compliant firms.</h2>
+    </div>
+    <div class="security-grid">
+      <div class="sec-card">
+        <div class="sec-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <h3>ISO 27001-aligned</h3>
+        <p>Controls, audit logs, annual third-party review.</p>
+      </div>
+      <div class="sec-card">
+        <div class="sec-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <h3>VDI-only workflows</h3>
+        <p>No downloads, no USB, no personal machines.</p>
+      </div>
+      <div class="sec-card">
+        <div class="sec-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <h3>Per-engagement NDAs</h3>
+        <p>Background-checked staff, signed on every job.</p>
+      </div>
+      <div class="sec-card">
+        <div class="sec-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
+        <h3>IRS §7216 workflows</h3>
+        <p>Consent templates baked into onboarding.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ONBOARDING -->
+<section>
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Onboarding</span>
+      <h2>Signed to staffed in 72 hours.</h2>
+    </div>
+    <div class="timeline">
+      <div class="step">
+        <div class="bubble">1</div>
+        <div class="when">Day 0</div>
+        <h3>15-min fit call</h3>
+        <p>Services, volume, tools.</p>
+      </div>
+      <div class="step">
+        <div class="bubble">2</div>
+        <div class="when">Day 1</div>
+        <h3>MSA + NDA</h3>
+        <p>One-page MSA, our NDA.</p>
+      </div>
+      <div class="step">
+        <div class="bubble">3</div>
+        <div class="when">Day 2</div>
+        <h3>Pod introduced</h3>
+        <p>Video intro. Swap if needed.</p>
+      </div>
+      <div class="step">
+        <div class="bubble">4</div>
+        <div class="when">Day 3</div>
+        <h3>First engagement live</h3>
+        <p>VDI up. Work in motion.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="alt">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">Partners, on the record</span>
+      <h2>Quiet results, loud evidence.</h2>
+    </div>
+    <div class="quotes-grid">
+      <article class="quote">
+        <p>"We doubled tax-season capacity without a single US hire. Drafts came back review-ready. Partners took weekends off."</p>
+        <div class="quote-by">
+          <div class="avatar">MP</div>
+          <div>
+            <div class="name">Managing Partner</div>
+            <div class="title">12-partner firm · Northeast US</div>
+          </div>
+        </div>
+      </article>
+      <article class="quote">
+        <p>"We'd tried two offshore shops. Indefine is the first where the same preparer stayed on our clients all year."</p>
+        <div class="quote-by">
+          <div class="avatar">TP</div>
+          <div>
+            <div class="name">Tax Partner</div>
+            <div class="title">Regional firm · Texas</div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ (collapsed = scannable) -->
+<section id="faq">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow">FAQ</span>
+      <h2>The questions partners ask first.</h2>
+    </div>
+    <div class="faq">
+      <details>
+        <summary>Is the published hourly rate really all-in?</summary>
+        <p>Yes. The core staff and reviewer rates you see are what you pay — no separate platform markups or hidden tiers. Coordinators are included with every pod.</p>
+      </details>
+      <details>
+        <summary>Can I keep the same preparer on my clients year over year?</summary>
+        <p>That's the default. Your preparer is assigned to your firm and stays on your book of business unless you request a change.</p>
+      </details>
+      <details>
+        <summary>What if someone on the team isn't a fit?</summary>
+        <p>We'll replace staff within a few business days while keeping your deadlines moving.</p>
+      </details>
+      <details>
+        <summary>Can I add seasonal capacity without a long contract?</summary>
+        <p>Yes. Spin up tax-season capacity and spin it down after peak — without annual commitments.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CTA — 4 fields only -->
+<section class="cta-band" id="contact">
+  <div class="container">
+    <div class="section-head">
+      <span class="eyebrow" style="color:#6FE7DC">Talk with us about your capacity plan</span>
+      <h2>Planning for the next busy season?</h2>
+      <p>Tailored rate sheet in your inbox within one business day.</p>
+      <p style="color:#6FE7DC;font-weight:600;margin-top:10px;font-size:.92rem">15 minutes · No pitch deck · If we're not a fit, we'll say so.</p>
+    </div>
+    <form class="form-card" onsubmit="event.preventDefault(); this.querySelector('.form-note').innerHTML='Thanks — we\\'ll be in touch within one business day.'; this.querySelectorAll('input,select,textarea,button').forEach(function(el){el.disabled=true});">
+      <div class="form-row">
+        <div class="form-field">
+          <label for="f-name">Your name</label>
+          <input id="f-name" type="text" required placeholder="Jane Doe" />
+        </div>
+        <div class="form-field">
+          <label for="f-firm">Firm name</label>
+          <input id="f-firm" type="text" required placeholder="Doe &amp; Partners CPAs" />
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-field">
+          <label for="f-email">Work email</label>
+          <input id="f-email" type="email" required placeholder="jane@firm.com" />
+        </div>
+        <div class="form-field">
+          <label for="f-need">What do you need?</label>
+          <select id="f-need">
+            <option>Tax prep (seasonal)</option>
+            <option>Tax prep (year-round)</option>
+            <option>Bookkeeping</option>
+            <option>Payroll</option>
+            <option>A mix</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary btn-lg" style="width:100%;justify-content:center">Send →</button>
+      <div class="form-note">One human will read this. No email lists. No autoresponders.</div>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="brand" style="margin-bottom:18px">
+          <span class="brand-wordmark">Indefine<span class="brand-dot">.</span></span>
+          <span class="brand-tagline">Streamlining workflows</span>
+        </div>
+        <p style="color:rgba(255,255,255,.6);font-size:.92rem;max-width:320px;margin:0">Back-office capacity for US CPA firms. Tax, books, payroll — dedicated staff from $10/hr.</p>
+      </div>
+      <div>
+        <h4>Services</h4>
+        <ul>
+          <li><a href="#services">Tax preparation</a></li>
+          <li><a href="#services">Bookkeeping</a></li>
+          <li><a href="#services">Payroll</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#security">Security</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Reach us</h4>
+        <ul>
+          <li><a href="#contact">Book a call</a></li>
+          <li><a href="mailto:hello@indefine.com">hello@indefine.com</a></li>
+          <li><a href="#">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Indefine. A separate wing of Indefine Group.</span>
+      <span>
+        <a href="#" style="margin-right:20px">Privacy</a>
+        <a href="#" style="margin-right:20px">Terms</a>
+        <a href="#">§7216 policy</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<script>
+document.querySelector('.menu-btn')?.addEventListener('click', function(){
+  const nav = document.querySelector('nav.primary');
+  const open = nav.style.display === 'flex';
+  nav.style.display = open ? 'none' : 'flex';
+  if (!open){
+    nav.style.flexDirection='column';
+    nav.style.position='absolute';
+    nav.style.top='72px';nav.style.left='0';nav.style.right='0';
+    nav.style.background='#fff';nav.style.padding='20px 24px';
+    nav.style.borderBottom='1px solid #E6E1D6';nav.style.gap='14px';
+  }
+});
+</script>
+
+</body>
+</html>
